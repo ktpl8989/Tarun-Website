@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Tarun Rawat Designs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">TRD</a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about our services, process, and more. If you can't find what you're looking for, feel free to contact us directly!</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>General Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">What is your typical web design process?</div>
+                        <div class="faq-answer">
+                            Our process typically involves an initial consultation, proposal and agreement, design conceptualization, development, testing, launch, and post-launch support. We keep you involved at every stage.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">How long does it take to build a website?</div>
+                        <div class="faq-answer">
+                            The timeline varies greatly depending on the complexity and scope of the project. A basic website might take 4-6 weeks, while a more complex e-commerce site could take 10-16 weeks or more. We provide an estimated timeline with your custom quote.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">Do you offer website maintenance services?</div>
+                        <div class="faq-answer">
+                            Yes, we offer ongoing website maintenance and support packages to ensure your website remains secure, updated, and performs optimally after launch.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">Can you redesign my existing website?</div>
+                        <div class="faq-answer">
+                            Absolutely! We specialize in revamping outdated websites to give them a fresh, modern look and improved functionality, ensuring better user experience and performance.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">What platforms do you work with?</div>
+                        <div class="faq-answer">
+                            We primarily work with modern web technologies including HTML, CSS, JavaScript frameworks (like React/Vue if needed for complex apps), and robust CMS platforms like WordPress, Shopify, and custom solutions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tarun Rawat Designs. All rights reserved.</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            element.classList.toggle('active');
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
