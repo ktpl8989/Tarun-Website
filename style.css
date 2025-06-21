@@ -1,38 +1,449 @@
-// scroll-to-top.js
+/* style.css */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Get the button element
-    const mybutton = document.getElementById("scrollToTopBtn");
+/* Import Google Fonts - Inter (still a clean, modern font) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-    // Check if the button exists on the page
-    if (mybutton) {
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {
-            scrollFunction();
-        };
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        function scrollFunction() {
-            // Use document.documentElement.scrollTop for broader browser compatibility
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f8f8; /* Off-white, very light grey background for cleanliness */
+  color: #1a1a1a; /* Very dark grey/near black for main text */
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-        // Assign the topFunction to the button's click event
-        mybutton.onclick = function() {
-            topFunction();
-        };
+/* Main container for page content */
+.container {
+  max-width: 1100px; /* Slightly narrower max-width for more focused content */
+  margin: 0 auto;
+  padding: 25px; /* Increased padding for more white space */
+  flex-grow: 1; /* Allows container to take available space */
+}
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Smooth scroll effect
-            });
-        }
-    } else {
-        console.warn("Scroll to top button with ID 'scrollToTopBtn' not found.");
-    }
-});
+/* Header Styles */
+.header {
+  background-color: #ffffff; /* Pure white header background */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+  padding: 20px 0; /* More vertical padding */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px; /* Adjust padding for header container */
+}
+
+.logo {
+  font-size: 30px; /* Slightly larger logo */
+  font-weight: 700;
+  color: #000000; /* Pure black logo text */
+  text-decoration: none;
+  /* Removed border-radius and padding for a cleaner text-only logo */
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.7; /* Simple fade on hover for logo */
+  background-color: transparent; /* Ensure no background on hover */
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Increased space between nav items */
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #555555; /* Medium grey nav text */
+  font-weight: 500;
+  padding: 10px 15px; /* More padding for clickable area */
+  border-radius: 6px; /* Slightly less rounded for a crisper look */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+  background-color: #000000; /* Pure black background on hover/active */
+  color: #ffffff; /* White text on hover/active */
+}
+
+/* Section Styling */
+.section {
+  background-color: #ffffff; /* Pure white section background */
+  border-radius: 12px; /* Slightly less rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Softened shadow */
+  padding: 70px; /* Increased padding for more breathing room */
+  margin-bottom: 50px; /* More space between sections */
+  text-align: center;
+}
+
+.section h1, .section h2 {
+  font-size: 42px; /* Larger headings for impact */
+  color: #000000; /* Pure black headings */
+  margin-bottom: 25px; /* Increased margin below headings */
+  font-weight: 700;
+}
+
+.section p {
+  font-size: 19px; /* Slightly larger paragraph text for readability */
+  color: #444444; /* Darker grey paragraph text */
+  margin-bottom: 35px; /* Increased margin below paragraphs */
+  max-width: 850px; /* Slightly wider paragraphs */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: #000000; /* Pure black button */
+  color: #ffffff; /* White button text */
+  padding: 18px 35px; /* Larger buttons */
+  border-radius: 8px; /* Slightly less rounded */
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px; /* Added letter spacing for modern feel */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.btn:hover {
+  background-color: #333333; /* Dark grey on hover */
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Image Cards (for Portfolio, etc.) */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger min width */
+  gap: 35px; /* Increased gap */
+  margin-top: 45px; /* Increased margin */
+}
+
+.image-card {
+  background-color: #ffffff; /* White card background */
+  border-radius: 10px; /* Slightly less rounded */
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); /* Very subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eeeeee; /* Very light border for definition */
+}
+
+.image-card:hover {
+  transform: translateY(-7px); /* More pronounced lift */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.image-card img {
+  width: 100%;
+  height: 240px; /* Slightly larger image height */
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #e0e0e0; /* Lighter border */
+}
+
+.image-card-content {
+  padding: 25px; /* More padding */
+  text-align: left;
+}
+
+.image-card-content h3 {
+  font-size: 24px; /* Larger heading in card */
+  color: #000000; /* Black heading */
+  margin-bottom: 12px;
+}
+
+.image-card-content p {
+  font-size: 16px;
+  color: #666666; /* Medium grey text */
+  margin-bottom: 0;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #111111; /* Very dark grey/near black footer */
+  color: #e0e0e0; /* Light grey footer text */
+  padding: 50px 0; /* More padding */
+  text-align: center;
+  margin-top: 60px; /* More space above footer */
+  border-top-left-radius: 15px; /* Slightly less rounded top corners */
+  border-top-right-radius: 15px;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25px; /* Adjust padding for footer container */
+}
+
+.footer p {
+  margin-bottom: 18px;
+  font-size: 15px;
+  color: #cccccc; /* Lighter grey for footer paragraphs */
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* Increased gap */
+  margin-top: 20px;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: #aaaaaa; /* Light grey for footer nav links */
+  font-weight: 400;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #ffffff; /* White on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white tint on hover */
+}
+
+/* Form Styling (for Contact Page) */
+.contact-form {
+  max-width: 650px; /* Slightly wider form */
+  margin: 50px auto 0 auto;
+  padding: 50px; /* More padding */
+  background-color: #ffffff; /* White form background */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softened shadow */
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 30px; /* Increased margin between form groups */
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px; /* Increased margin below label */
+  color: #333333; /* Dark grey label text */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 16px; /* Larger padding for inputs */
+  border: 1px solid #dddddd; /* Lighter grey border */
+  border-radius: 8px; /* Slightly less rounded */
+  font-family: 'Inter', sans-serif;
+  font-size: 17px; /* Slightly larger font size */
+  background-color: #fcfcfc; /* Very subtle off-white background for inputs */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+  border-color: #000000; /* Pure black focus border */
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05); /* Very subtle focus shadow */
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px; /* Taller textarea */
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 20px; /* Larger submit button */
+  background-color: #000000; /* Pure black submit button */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px; /* Larger font size */
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background-color: #333333; /* Dark grey on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* FAQ Styling */
+.faq-item {
+  background-color: #ffffff; /* White FAQ item background */
+  border-radius: 10px;
+  padding: 30px; /* More padding */
+  margin-bottom: 25px; /* More space between items */
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06); /* Very subtle shadow */
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eeeeee; /* Very light border */
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.09);
+}
+
+.faq-question {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* Dark grey question text */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 26px; /* Larger plus/minus sign */
+  transition: transform 0.3s ease;
+  color: #666666; /* Medium grey plus/minus */
+}
+
+.faq-question.active::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  font-size: 16px;
+  color: #555555; /* Dark grey answer text */
+  padding-top: 20px; /* More padding */
+  border-top: 1px solid #dddddd; /* Lighter border */
+  margin-top: 20px; /* More margin */
+  display: none; /* Hidden by default */
+  overflow: hidden; /* For smooth transition */
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 35px; /* Slightly higher position */
+    right: 35px; /* Slightly further from the edge */
+    z-index: 99; /* Ensure it's above other content */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #000000; /* Pure black button */
+    color: white; /* White text */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 16px 22px; /* Slightly larger padding */
+    border-radius: 50%; /* Rounded shape */
+    font-size: 20px; /* Larger font size */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); /* Stronger but soft shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #333333; /* Dark grey on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Custom Mouse Triangle (for dynamic cursor effect) - Pure black */
+.mouse-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent; /* Half width of base */
+  border-right: 8px solid transparent; /* Half width of base */
+  border-bottom: 16px solid #000000; /* Pure black height and color, pointing upwards */
+  position: fixed; /* Positioned relative to the viewport */
+  pointer-events: none; /* Ensures clicks go through the triangle to elements below */
+  transform: translate(-50%, -50%); /* Centers the triangle precisely on the mouse coordinates */
+  transition: transform 0.05s linear; /* Smooth movement for the triangle */
+  z-index: 9999; /* Ensures the triangle is always on top of other content */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 15px; /* Adjusted gap */
+    margin-top: 25px; /* Adjusted margin */
+  }
+
+  .nav-menu ul li a {
+    width: 100%;
+    text-align: center;
+    padding: 12px; /* Adjusted padding */
+  }
+
+  .section {
+    padding: 40px; /* Adjusted padding */
+  }
+
+  .section h1, .section h2 {
+    font-size: 34px; /* Adjusted font size */
+  }
+
+  .section p {
+    font-size: 17px; /* Adjusted font size */
+  }
+
+  .footer .container {
+    flex-direction: column;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    gap: 15px; /* Adjusted gap */
+  }
+
+  .contact-form {
+    padding: 30px; /* Adjusted padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .section h1, .section h2 {
+    font-size: 28px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .section {
+    padding: 25px; /* Smaller padding on very small screens */
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+}
