@@ -24,6 +24,7 @@ body {
 /* Main container for page content */
 .container {
   max-width: 1200px;
+  text-align: center;
   margin: 0 auto;
   padding: 20px;
   flex-grow: 1; /* Allows container to take available space */
