@@ -12,8 +12,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: #e8e8e8; /* Very light grey background */
+  color: #333333; /* Darker grey text */
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -30,8 +30,8 @@ body {
 
 /* Header Styles */
 .header {
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff; /* White header background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
   padding: 15px 0;
   position: sticky;
   top: 0;
@@ -48,7 +48,7 @@ body {
 .logo {
   font-size: 28px;
   font-weight: 700;
-  color: #007bff;
+  color: #000000; /* Black logo text */
   text-decoration: none;
   border-radius: 8px; /* Rounded logo */
   padding: 5px 10px;
@@ -56,7 +56,7 @@ body {
 }
 
 .logo:hover {
-  background-color: rgba(0, 123, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); /* Grey hover effect */
 }
 
 .nav-menu ul {
@@ -67,7 +67,7 @@ body {
 
 .nav-menu ul li a {
   text-decoration: none;
-  color: #555;
+  color: #555555; /* Dark grey nav text */
   font-weight: 500;
   padding: 8px 12px;
   border-radius: 8px; /* Rounded nav items */
@@ -76,15 +76,15 @@ body {
 
 .nav-menu ul li a:hover,
 .nav-menu ul li a.active {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #333333; /* Dark grey background on hover/active */
+  color: #ffffff; /* White text on hover/active */
 }
 
 /* Section Styling */
 .section {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White section background */
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
   padding: 60px;
   margin-bottom: 40px;
   text-align: center;
@@ -92,14 +92,14 @@ body {
 
 .section h1, .section h2 {
   font-size: 38px;
-  color: #007bff;
+  color: #000000; /* Black headings */
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .section p {
   font-size: 18px;
-  color: #555;
+  color: #555555; /* Dark grey paragraph text */
   margin-bottom: 30px;
   max-width: 800px;
   margin-left: auto;
@@ -109,20 +109,20 @@ body {
 /* Buttons */
 .btn {
   display: inline-block;
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #333333; /* Dark grey button */
+  color: #ffffff; /* White button text */
   padding: 15px 30px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for button */
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #000000; /* Black button on hover */
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 /* Image Cards (for Portfolio, etc.) */
@@ -134,7 +134,7 @@ body {
 }
 
 .image-card {
-  background-color: #f0f8ff;
+  background-color: #f5f5f5; /* Lighter grey card background */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -151,7 +151,7 @@ body {
   height: 220px; /* Fixed height for image consistency */
   object-fit: cover; /* Ensures images cover the area without distortion */
   display: block;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #cccccc; /* Lighter border */
 }
 
 .image-card-content {
@@ -161,20 +161,20 @@ body {
 
 .image-card-content h3 {
   font-size: 22px;
-  color: #007bff;
+  color: #333333; /* Dark grey heading in card */
   margin-bottom: 10px;
 }
 
 .image-card-content p {
   font-size: 15px;
-  color: #666;
+  color: #666666; /* Medium grey text in card */
   margin-bottom: 0;
 }
 
 /* Footer Styles */
 .footer {
-  background-color: #333;
-  color: #ffffff;
+  background-color: #1a1a1a; /* Dark grey footer */
+  color: #ffffff; /* White footer text */
   padding: 40px 0;
   text-align: center;
   margin-top: 50px;
@@ -203,7 +203,7 @@ body {
 
 .footer-nav ul li a {
   text-decoration: none;
-  color: #ccc;
+  color: #cccccc; /* Light grey footer nav links */
   font-weight: 400;
   padding: 5px 10px;
   border-radius: 8px;
@@ -211,8 +211,8 @@ body {
 }
 
 .footer-nav ul li a:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff; /* White on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight white tint on hover */
 }
 
 /* Form Styling (for Contact Page) */
@@ -220,7 +220,7 @@ body {
   max-width: 600px;
   margin: 40px auto 0 auto;
   padding: 40px;
-  background-color: #f0f8ff;
+  background-color: #f5f5f5; /* Lighter grey form background */
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   text-align: left;
@@ -234,7 +234,7 @@ body {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
+  color: #333333; /* Dark grey label text */
 }
 
 .form-group input[type="text"],
@@ -242,7 +242,7 @@ body {
 .form-group textarea {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #aaaaaa; /* Medium grey border */
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -252,8 +252,8 @@ body {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  border-color: #333333; /* Dark grey focus border */
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* Softer focus shadow */
   outline: none;
 }
 
@@ -265,7 +265,7 @@ body {
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background-color: #007bff;
+  background-color: #333333; /* Dark grey submit button */
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -273,29 +273,35 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+  background-color: #000000; /* Black submit button on hover */
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* FAQ Styling */
 .faq-item {
-  background-color: #f0f8ff;
+  background-color: #f5f5f5; /* Lighter grey FAQ item background */
   border-radius: 12px;
   padding: 25px;
   margin-bottom: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question {
   font-size: 20px;
   font-weight: 600;
-  color: #007bff;
+  color: #333333; /* Dark grey question text */
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -306,6 +312,7 @@ body {
   content: '+';
   font-size: 24px;
   transition: transform 0.3s ease;
+  color: #333333; /* Ensure plus/minus is black/white */
 }
 
 .faq-question.active::after {
@@ -315,9 +322,9 @@ body {
 
 .faq-answer {
   font-size: 16px;
-  color: #555;
+  color: #555555; /* Dark grey answer text */
   padding-top: 15px;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #cccccc; /* Lighter grey border */
   margin-top: 15px;
   display: none; /* Hidden by default */
   overflow: hidden; /* For smooth transition */
@@ -331,6 +338,31 @@ body {
 .mt-40 {
   margin-top: 40px;
 }
+
+/* Scroll to Top Button (portfolio.html specific, but included here for completeness) */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 30px; /* Place at the bottom */
+    right: 30px; /* Place at the right */
+    z-index: 99; /* Ensure it's above other content */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #333333; /* Dark grey button */
+    color: white; /* White text */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px 20px; /* Some padding */
+    border-radius: 50%; /* Rounded shape */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #000000; /* Black on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
