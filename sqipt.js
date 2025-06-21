@@ -1,23 +1,14 @@
-<script>
-        // Get the button
-        let mybutton = document.getElementById("scrollToTopBtn");
+// cursor-effect.js
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
+document.addEventListener('DOMContentLoaded', () => {
+    // Create the triangle element
+    const mouseTriangle = document.createElement('div');
+    mouseTriangle.classList.add('mouse-triangle');
+    document.body.appendChild(mouseTriangle);
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Smooth scroll effect
-            });
-        }
-    </script>
+    // Update triangle position on mouse move
+    document.addEventListener('mousemove', (e) => {
+        mouseTriangle.style.left = `${e.clientX}px`;
+        mouseTriangle.style.top = `${e.clientY}px`;
+    });
+});
