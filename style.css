@@ -18,6 +18,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  cursor: none; /* Hide default cursor if using custom */
 }
 
 /* Main container for page content */
@@ -363,6 +364,19 @@ body {
     transform: translateY(-2px); /* Slight lift on hover */
 }
 
+/* Custom Mouse Triangle (for dynamic cursor effect) */
+.mouse-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent; /* Half width of base */
+  border-right: 8px solid transparent; /* Half width of base */
+  border-bottom: 16px solid #000000; /* Height and color, pointing upwards */
+  position: fixed; /* Positioned relative to the viewport */
+  pointer-events: none; /* Ensures clicks go through the triangle to elements below */
+  transform: translate(-50%, -50%); /* Centers the triangle precisely on the mouse coordinates */
+  transition: transform 0.05s linear; /* Smooth movement for the triangle */
+  z-index: 9999; /* Ensures the triangle is always on top of other content */
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
