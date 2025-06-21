@@ -23,6 +23,7 @@ body {
 /* Main container for page content */
 .container {
   max-width: 1100px; /* Slightly narrower max-width for more focused content */
+  text-align: center;
   margin: 0 auto;
   padding: 25px; /* Increased padding for more white space */
   flex-grow: 1; /* Allows container to take available space */
