@@ -73,3 +73,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+<script>
+let scene, camera, renderer, model;
+let container = document.getElementById('teddy-3d-container');
+
+// 1. Setup the scene
+scene = new THREE.Scene();
+scene.background = new THREE.Color(0xffe1e7); // pastel pink
+
+// 2. Setup the camera
+camera = new THREE.PerspectiveCamera(45, container.offsetWidth/container.offsetHeight, 0.1, 1000);
+camera.position.set(0, 1.2, 3);
+
+// 3. Setup the renderer
+renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+renderer.setSize(container.offsetWidth, container.offsetHeight);
+container.appendChild(renderer.domElement);
+
+// 4. Add light
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
+dirLight.position.set(2, 10, 10);
+scene.add(dirLight);
+
+// 5. Load GLTF model (example teddy model)
+// Find a cute GLTF/GLB model online, e.g. from https://sketchfab.com/tags/teddy-bear or https://poly.pizza
+// For demo, replace the link below with your own .glb or .gltf URL!
+const loader = new THREE.GLTFLoader();
+loader.load('https://model-url.glb', function(gltf) {
+    model = gltf.scene;
+    model.scale.set(2,2,2);
+    scene.add(model);
+    animate();
+});
+
+// 6. Mouse interaction - rotate model to follow mouse
+container.addEventListener('mousemove', (event) => {
+    if (!model) return;
+    // Map mouse position to [-1,1]
+    const x = (event.offsetX / container.offsetWidth) * 2 - 1;
+    const y = (event.offsetY / container.offsetHeight) * 2 - 1;
+    // Rotate model based on mouse
+    model.rotation.y = -x * 1.2; // rotate horizontally
+    model.rotation.x = -y * 0.6; // rotate vertically
+});
+
+// 7. Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+</script>
