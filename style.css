@@ -38,6 +38,54 @@ body {
   top: 0;
   z-index: 1000;
 }
+/* Mouse Cursor Tracking Circle */
+.cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(0,0,0,0.14);
+  border: 2px solid #000;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.2s, border 0.2s;
+  mix-blend-mode: difference;
+}
+
+/* 3 Fixed Shapes */
+.shape {
+  position: absolute;
+  z-index: 10;
+  opacity: 0.9;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.shape-1 {
+  width: 70px;
+  height: 70px;
+  background: #ff4171;
+  border-radius: 50%;
+  top: 180px;
+  left: 12%;
+}
+.shape-2 {
+  width: 70px;
+  height: 70px;
+  background: #f9d923;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  top: 340px;
+  left: 30%;
+}
+.shape-3 {
+  width: 70px;
+  height: 70px;
+  background: #23a6d5;
+  border-radius: 15px;
+  top: 240px;
+  left: 65%;
+}
 
 .header .container {
   display: flex;
